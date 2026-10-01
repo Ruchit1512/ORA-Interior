@@ -21,7 +21,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 bg-[#F5F3EF] border-t border-[#171717]/10 relative">
+    <section id="contact" className="scroll-mt-24 py-24 md:py-36 bg-[#F5F3EF] border-t border-[#171717]/10 relative">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="flex items-center justify-between border-b border-[#171717]/10 pb-4 mb-16 md:mb-20">

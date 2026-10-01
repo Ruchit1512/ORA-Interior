@@ -138,7 +138,7 @@ export function ServicesSection() {
                   </p>
 
                   <Link
-                    href="/contact"
+                    href="/#contact"
                     className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#111111] hover:text-[#A58A63] transition-colors border-b border-[#111111] pb-0.5"
                   >
                     <span>Inquire Discipline</span>

@@ -119,7 +119,7 @@ export function MaterialsSection() {
 
             <div className="pt-2">
               <Link
-                href="/contact"
+                href="/#contact"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#111111] text-[#F8F6F2] hover:bg-[#A58A63] hover:text-[#111111] transition-all text-xs uppercase tracking-[0.2em] font-medium rounded-sm shadow-sm"
               >
                 <span>Discuss Your Home</span>

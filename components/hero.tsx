@@ -108,7 +108,7 @@ export function Hero() {
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover object-center"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/banner.mp4" type="video/mp4" />
         </video>
 
         {/* Controlled Subtle Overlay (rgba(0,0,0,0.38)) */}
@@ -166,7 +166,7 @@ export function Hero() {
 
           <div className="flex flex-wrap items-center gap-3.5 pt-1">
             <Link
-              href="/contact"
+              href="#contact"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#A58A63] text-[#111111] hover:bg-[#b59a72] transition-all text-xs uppercase tracking-[0.18em] font-medium rounded-sm shadow-sm"
             >
               <span>Start Your Project</span>

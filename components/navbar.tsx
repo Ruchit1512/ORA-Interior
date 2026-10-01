@@ -5,20 +5,43 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
+import { BrandLogo } from "@/components/brand-logo";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Services", href: "/#services" },
   { label: "Projects", href: "/#projects" },
-  { label: "Why Us", href: "/#why-ora" },
-  { label: "Contact", href: "/contact" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const getHref = (href: string) => {
+    if (href === "/#contact") {
+      return pathname === "/" ? "#contact" : "/#contact";
+    }
+    if (href === "/#why-us") {
+      return pathname === "/" ? "#why-us" : "/#why-us";
+    }
+    return href;
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#") || (pathname === "/" && href.startsWith("/#"))) {
+      const id = href.replace("/#", "").replace("#", "");
+      const targetElement = document.getElementById(id);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `#${id}`);
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,37 +61,22 @@ export function Navbar() {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="group flex items-baseline gap-2 focus:outline-none"
-            aria-label="ORA Interior and Construction Solutions"
-          >
-            <span
-              className={`font-serif text-2xl md:text-3xl font-normal tracking-tight transition-colors duration-300 ${
-                isScrolled ? "text-[#171717]" : "text-[#F8F6F2]"
-              }`}
-            >
-              ORA
-            </span>
-            <span
-              className={`text-[9px] tracking-[0.28em] uppercase font-sans font-medium transition-colors duration-300 ${
-                isScrolled ? "text-[#68645D]" : "text-[#F8F6F2]/80"
-              }`}
-            >
-              INTERIORS
-            </span>
-          </Link>
+          {/* Official ORA Brand Logo */}
+          <div onClick={() => setMobileMenuOpen(false)}>
+            <BrandLogo variant="navbar" isScrolled={isScrolled} priority />
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10">
             {NAV_LINKS.map((link) => {
+              const targetHref = getHref(link.href);
               const isActive = pathname === link.href;
 
               return (
                 <Link
                   key={link.label}
-                  href={link.href}
+                  href={targetHref}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-xs uppercase tracking-[0.16em] font-medium transition-colors duration-200 relative py-1 ${
                     isScrolled
                       ? isActive
@@ -117,17 +125,23 @@ export function Navbar() {
 
       {/* Mobile Full Screen Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#111111] text-[#F8F6F2] flex flex-col justify-between p-8 pt-28 lg:hidden">
+        <div className="fixed inset-0 z-40 bg-[#111111] text-[#F8F6F2] flex flex-col justify-between p-8 pt-20 lg:hidden overflow-y-auto">
           <div className="space-y-6">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[#A58A63]">
+            <div onClick={() => setMobileMenuOpen(false)}>
+              <BrandLogo variant="mobile-menu" priority />
+            </div>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[#A58A63] pt-2">
               Navigation
             </p>
             <div className="flex flex-col space-y-4">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  href={getHref(link.href)}
+                  onClick={(e) => {
+                    handleNavClick(e, link.href);
+                    setMobileMenuOpen(false);
+                  }}
                   className="font-serif text-3xl sm:text-4xl text-[#F8F6F2] hover:text-[#A58A63] transition-colors"
                 >
                   {link.label}

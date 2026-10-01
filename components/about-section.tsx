@@ -118,7 +118,7 @@ export function AboutSection() {
 
             <div className="pt-4 border-t border-[#171717]/10">
               <Link
-                href="/contact"
+                href="#contact"
                 className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#111111] hover:text-[#A58A63] transition-colors border-b border-[#111111] pb-1"
               >
                 <span>Schedule a Space Visit</span>

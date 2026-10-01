@@ -66,9 +66,9 @@ export function WhyChooseUs() {
 
   return (
     <section
-      id="why-ora"
+      id="why-us"
       ref={containerRef}
-      className="py-28 md:py-40 bg-[#F5F3EF] border-t border-[#171717]/10 relative"
+      className="scroll-mt-24 py-28 md:py-40 bg-[#F5F3EF] border-t border-[#171717]/10 relative"
     >
       <div className="container mx-auto">
         {/* Section Header */}

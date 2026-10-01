@@ -58,7 +58,7 @@ export default function AboutPage() {
 
             <div className="pt-4 border-t border-[#171717]/10">
               <Link
-                href="/contact"
+                href="/#contact"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#111111] text-[#F5F3EF] hover:bg-[#A58A63] hover:text-[#111111] transition-all text-xs uppercase tracking-[0.2em] font-medium"
               >
                 <span>Request Consultation</span>

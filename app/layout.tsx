@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   openGraph: {
     title: "ORA Interior & Construction Solutions | Interior Design & Renovation in Bhopal",
     description:
@@ -52,9 +57,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
-        width: 1200,
-        height: 630,
+        url: "/images/logo.png",
+        width: 1536,
+        height: 1024,
         alt: "ORA Interior & Construction Solutions Bhopal",
       },
     ],
@@ -65,6 +70,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   name: COMPANY_INFO.name,
+  logo: "https://orainteriors.com/images/logo.png",
+  image: "https://orainteriors.com/images/logo.png",
   telephone: `+91-${COMPANY_INFO.phone}`,
   email: COMPANY_INFO.email,
   address: {
@@ -89,7 +96,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${playfair.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${manrope.variable} ${playfair.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"

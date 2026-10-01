@@ -169,7 +169,7 @@ export function ProjectsSection() {
         <div className="container mx-auto flex items-center justify-between border-t border-[#F8F6F2]/15 pt-4 text-[10px] font-mono uppercase tracking-[0.2em] text-[#C9C5BD]">
           <span>Scroll to traverse portfolio</span>
           <Link
-            href="/contact"
+            href="/#contact"
             className="text-[#A58A63] hover:text-[#F8F6F2] transition-colors border-b border-[#A58A63]/50 pb-0.5"
           >
             Inquire specific project scope &rarr;

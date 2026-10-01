@@ -133,7 +133,7 @@ export function HomeTypes() {
               </div>
 
               <Link
-                href="/contact"
+                href="#contact"
                 className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#F8F6F2] hover:text-[#A58A63] transition-colors border-b border-[#F8F6F2]/30 pb-1"
               >
                 <span>Request {ht.type} Layout Estimate</span>

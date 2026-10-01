@@ -91,7 +91,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
   { label: "Why Us", href: "/#why-us" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const HERO_DATA = {

@@ -39,7 +39,7 @@ export function CTASection() {
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <Link
-            href="/contact"
+            href="/#contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#A58A63] text-[#111111] hover:bg-[#b59a72] transition-all text-xs uppercase tracking-[0.2em] font-medium rounded-sm shadow-sm"
           >
             <span>Start Your Project</span>
