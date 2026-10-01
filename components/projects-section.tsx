@@ -19,7 +19,7 @@ const EDITORIAL_PROJECTS = [
     title: "Contemporary Residence Living Lounge",
     location: "Arera Colony, Bhopal",
     image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85",
-    aspect: "w-[440px] sm:w-[540px] aspect-[4/3]",
+    objectPosition: "center",
     scope: "Complete Panelling, False Ceiling & Millwork",
   },
   {
@@ -28,7 +28,7 @@ const EDITORIAL_PROJECTS = [
     title: "Minimal Quartz & Acrylic Culinary Space",
     location: "Kolar Road, Bhopal",
     image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85",
-    aspect: "w-[380px] sm:w-[480px] aspect-[1/1]",
+    objectPosition: "center",
     scope: "BWP Ply Carcass & Soft-Close German Fittings",
   },
   {
@@ -37,7 +37,7 @@ const EDITORIAL_PROJECTS = [
     title: "Master Suite & Concealed Wardrobe Joinery",
     location: "Hoshangabad Road, Bhopal",
     image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=85",
-    aspect: "w-[460px] sm:w-[560px] aspect-[16/10]",
+    objectPosition: "center",
     scope: "Floor-to-Ceiling Wardrobes & Ambient Lighting",
   },
   {
@@ -46,7 +46,7 @@ const EDITORIAL_PROJECTS = [
     title: "Double-Height Architectural Bungalow",
     location: "MP Nagar, Bhopal",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
-    aspect: "w-[420px] sm:w-[520px] aspect-[4/3]",
+    objectPosition: "center",
     scope: "Staircase Accents & Two-Level Spatial Flow",
   },
   {
@@ -55,7 +55,7 @@ const EDITORIAL_PROJECTS = [
     title: "Complete Structural & Interior Overhaul",
     location: "Bawadiya Kalan, Bhopal",
     image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
-    aspect: "w-[480px] sm:w-[580px] aspect-[16/9]",
+    objectPosition: "center",
     scope: "Civil Masonry, Plumbing, Electrical & Turnkey Finish",
   },
 ];
@@ -95,9 +95,9 @@ export function ProjectsSection() {
     <section
       id="projects"
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-[#111111] text-[#F5F3EF]"
+      className="relative min-h-screen w-full overflow-hidden bg-[#111111] text-[#F5F3EF]"
     >
-      <div className="h-full flex flex-col justify-between py-12 md:py-16">
+      <div className="min-h-screen flex flex-col justify-between py-12 md:py-16">
         {/* Top Header */}
         <div className="container mx-auto flex items-center justify-between border-b border-[#FFFFFF]/15 pb-4">
           <div>
@@ -116,7 +116,7 @@ export function ProjectsSection() {
         </div>
 
         {/* Pinned Horizontal Gallery Track */}
-        <div className="relative my-auto overflow-visible">
+        <div className="relative my-auto overflow-visible py-4">
           <div
             ref={trackRef}
             className="flex items-center gap-10 md:gap-16 px-6 md:px-16 w-max will-change-transform"
@@ -124,18 +124,19 @@ export function ProjectsSection() {
             {EDITORIAL_PROJECTS.map((item) => (
               <div
                 key={item.num}
-                className={`group flex-shrink-0 ${item.aspect} relative flex flex-col justify-between`}
+                className="group flex-shrink-0 w-[300px] sm:w-[400px] md:w-[480px] lg:w-[540px] relative flex flex-col space-y-4"
               >
-                {/* Image Container with subtle hover scale */}
-                <div className="relative w-full h-[78%] overflow-hidden bg-[#171717] border border-[#F8F6F2]/15">
+                {/* Fixed-Height Responsive Image Container */}
+                <div className="relative w-full h-[320px] md:h-[420px] lg:h-[520px] overflow-hidden bg-[#171717] border border-[#F8F6F2]/15">
                   <Image
                     src={item.image}
                     alt={`${item.num} ${item.title}`}
                     fill
-                    sizes="(max-width: 768px) 80vw, 600px"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-104"
+                    sizes="(max-width: 768px) 85vw, 600px"
+                    style={{ objectPosition: item.objectPosition || "center" }}
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 via-transparent to-transparent pointer-events-none" />
 
                   <div className="absolute top-4 left-4 px-3 py-1 bg-[#111111]/90 backdrop-blur-md text-[10px] font-mono uppercase tracking-[0.2em] text-[#A58A63] border border-[#F8F6F2]/15 font-medium">
                     {item.num} — {item.label}
@@ -143,7 +144,7 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Editorial Caption under Image */}
-                <div className="pt-4 flex flex-col justify-between space-y-1.5">
+                <div className="pt-1 flex flex-col space-y-1.5">
                   <div className="flex items-center justify-between">
                     <h3 className="font-serif text-lg sm:text-xl font-normal text-[#F8F6F2] group-hover:text-[#A58A63] transition-colors">
                       {item.title}
