@@ -4,22 +4,23 @@ import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 bg-charcoal-950">
-      <span className="text-xs font-mono uppercase tracking-[0.25em] text-bronze-400 block mb-3">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center text-center px-6 bg-[#111111] text-[#F8F6F2]">
+      <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63] block mb-4">
         404 — Page Not Found
       </span>
-      <h1 className="font-serif text-4xl sm:text-5xl font-semibold text-ivory-100 mb-4">
+      <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#F8F6F2] mb-4 tracking-tight">
         Space Under Design
       </h1>
-      <p className="text-sm text-ivory-300/80 max-w-md mb-8">
-        The page you are looking for has moved or does not exist. Explore our projects or return to the home sanctuary.
+      <p className="text-sm md:text-base text-[#C9C5BD] max-w-md mb-8 font-light leading-relaxed">
+        The requested architectural page has moved or is not yet built. Explore our projects or return to the main studio overview.
       </p>
-      <Button asChild className="bg-bronze-500 text-charcoal-950 hover:bg-bronze-400 font-semibold px-6 py-5">
-        <Link href="/">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          <span>Return Home</span>
-        </Link>
-      </Button>
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 px-8 py-4 bg-[#F8F6F2] text-[#111111] hover:bg-[#A58A63] hover:text-[#111111] transition-all text-xs uppercase tracking-[0.2em] font-medium"
+      >
+        <ArrowLeft className="w-3.5 h-3.5" />
+        <span>Return to Overview</span>
+      </Link>
     </div>
   );
 }

@@ -52,7 +52,7 @@ export function ProcessSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-[#E9E5DE] text-[#171717] border-t border-[#171717]/10"
+      className="relative h-screen w-full overflow-hidden bg-[#ECE8E1] text-[#171717] border-t border-[#171717]/10"
     >
       <div className="container mx-auto h-full flex flex-col justify-between py-12 md:py-20">
         {/* Top Header */}
@@ -61,7 +61,7 @@ export function ProcessSection() {
             <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63]">
               Roadmap
             </span>
-            <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#77736C]">
+            <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#68645D]">
               5 Sequential Phases
             </span>
           </div>
@@ -121,7 +121,7 @@ export function ProcessSection() {
         </div>
 
         {/* Bottom indicator */}
-        <div className="flex items-center justify-between border-t border-[#171717]/15 pt-4 text-[10px] font-mono uppercase tracking-[0.2em] text-[#77736C]">
+        <div className="flex items-center justify-between border-t border-[#171717]/15 pt-4 text-[10px] font-mono uppercase tracking-[0.2em] text-[#68645D]">
           <span>Phased Turnkey Execution</span>
           <span>Bhopal Site Supervised</span>
         </div>

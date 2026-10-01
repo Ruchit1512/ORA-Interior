@@ -54,7 +54,7 @@ export function MaterialsSection() {
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63]">
             Single-Point Accountability
           </span>
-          <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#77736C]">
+          <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#68645D]">
             Integrated Turnkey Model
           </span>
         </div>
@@ -65,7 +65,7 @@ export function MaterialsSection() {
           <div className="lg:col-span-7">
             <div
               ref={imageRef}
-              className="relative aspect-[16/11] w-full overflow-hidden bg-[#E9E5DE] will-change-transform border border-[#171717]/10"
+              className="relative aspect-[16/11] w-full overflow-hidden bg-[#ECE8E1] will-change-transform border border-[#171717]/10"
             >
               <Image
                 src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85"
