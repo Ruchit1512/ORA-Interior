@@ -1,8 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, MapPin, MessageSquare, Phone, Mail } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
 import { BrandLogo } from "@/components/brand-logo";
+import { motion } from "framer-motion";
+import { fadeLeft, buttonHover, fadeRight } from "@/lib/motion";
 
 // ========================================================
 // GOOGLE MAPS CONFIGURATION
@@ -31,7 +35,10 @@ export function Footer() {
     <footer className="bg-[#111111] text-[#F8F6F2] pt-20 md:pt-24 pb-14 border-t border-[#F8F6F2]/10 overflow-hidden">
       <div className="container mx-auto">
         {/* Official Brand Header */}
-        <div className="border-b border-[#F8F6F2]/10 pb-10 mb-14 md:mb-16 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+        <motion.div
+          {...fadeLeft(0)}
+          className="border-b border-[#F8F6F2]/10 pb-10 mb-14 md:mb-16 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6"
+        >
           <div>
             <BrandLogo variant="footer" priority={false} />
             <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.28em] text-[#A58A63] block mt-4">
@@ -41,12 +48,15 @@ export function Footer() {
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C9C5BD]/60">
             Madhya Pradesh • India
           </span>
-        </div>
+        </motion.div>
 
         {/* Main Grid: Desktop 2-column, Mobile stacked */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-14 border-b border-[#F8F6F2]/10">
           {/* LEFT: Business Information & Contact Links */}
-          <div className="lg:col-span-7 space-y-8">
+          <motion.div
+            {...fadeLeft(0.1)}
+            className="lg:col-span-7 space-y-8"
+          >
             <div className="space-y-2">
               <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#A58A63] block">
                 Interior Architecture Studio
@@ -127,10 +137,13 @@ export function Footer() {
                 </ul>
               </nav>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: Compact Google Maps Section */}
-          <div className="lg:col-span-5 space-y-4">
+          <motion.div
+            {...fadeRight(0.15)}
+            className="lg:col-span-5 space-y-4"
+          >
             <div className="flex items-center justify-between border-b border-[#F8F6F2]/10 pb-3">
               <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#A58A63] flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5" />
@@ -171,7 +184,7 @@ export function Footer() {
                 Mon–Sat • 9:30 AM – 7:30 PM
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Mobile Navigation (Appears after map on mobile, ensuring clean vertical stack) */}
@@ -196,10 +209,13 @@ export function Footer() {
         </div>
 
         {/* Bottom Metadata & Copyright */}
-        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono uppercase tracking-[0.2em] text-[#C9C5BD]/60 gap-4">
+        <motion.div
+          {...fadeLeft(0.2)}
+          className="pt-10 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono uppercase tracking-[0.2em] text-[#C9C5BD]/60 gap-4"
+        >
           <span>&copy; 2026 ORA Interior &amp; Construction Solutions</span>
           <span>Bhopal • Architectural Interior Studio</span>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

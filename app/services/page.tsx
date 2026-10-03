@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ServicesSection } from "@/components/services-section";
-import { MaterialsSection } from "@/components/materials-section";
 import { CTASection } from "@/components/cta-section";
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export default function ServicesPage() {
   return (
     <div className="pt-24 bg-[#F5F3EF]">
       <ServicesSection />
-      <MaterialsSection />
       <CTASection />
     </div>
   );

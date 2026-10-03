@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowDown, ArrowUpRight, MessageSquare } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
+import { motion } from "framer-motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -120,9 +121,14 @@ export function Hero() {
       <div className="relative z-10 h-full w-full container mx-auto flex flex-col justify-between pt-28 md:pt-32 pb-10 md:pb-14">
         {/* Top small label */}
         <div className="pt-2">
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-[#A58A63] font-medium font-sans">
+          <motion.p
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-[#A58A63] font-medium font-sans"
+          >
             ORA INTERIOR &amp; CONSTRUCTION SOLUTIONS
-          </p>
+          </motion.p>
         </div>
 
         {/* Central Morphing Headline Stage */}
@@ -132,9 +138,16 @@ export function Hero() {
             ref={headline1Ref}
             className="absolute left-0 top-0 font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#F8F6F2] leading-[1.08]"
           >
-            Spaces Designed
-            <br />
-            <span className="italic font-normal text-[#C9C5BD]">Around You.</span>
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
+            >
+              Spaces Designed
+              <br />
+              <span className="italic font-normal text-[#C9C5BD]">Around You.</span>
+            </motion.span>
           </h1>
 
           {/* Headline 2 (During Scroll 1) */}
@@ -160,46 +173,80 @@ export function Hero() {
 
         {/* Supporting Line & CTAs */}
         <div ref={initialContentRef} className="space-y-6 max-w-2xl">
-          <p className="text-sm sm:text-base md:text-lg text-[#F8F6F2]/90 font-light leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.42 }}
+            className="text-sm sm:text-base md:text-lg text-[#F8F6F2]/90 font-light leading-relaxed"
+          >
             Complete interior design, renovation and execution solutions for modern homes in Bhopal.
-          </p>
+          </motion.p>
 
           <div className="flex flex-wrap items-center gap-3.5 pt-1">
-            <Link
-              href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#A58A63] text-[#111111] hover:bg-[#b59a72] transition-all text-xs uppercase tracking-[0.18em] font-medium rounded-sm shadow-sm"
+            <motion.div
+              initial={{ opacity: 0, x: -35 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <span>Start Your Project</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+              <Link
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#A58A63] text-[#111111] hover:bg-[#b59a72] transition-all text-xs uppercase tracking-[0.18em] font-medium rounded-sm shadow-sm"
+              >
+                <span>Start Your Project</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
 
-            <a
-              href={COMPANY_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#171717]/80 hover:bg-[#171717] border border-[#F8F6F2]/25 text-[#F8F6F2] hover:text-[#A58A63] hover:border-[#A58A63] transition-all text-xs uppercase tracking-[0.18em] font-medium rounded-sm backdrop-blur-sm"
+            <motion.div
+              initial={{ opacity: 0, x: -35 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.65 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <MessageSquare className="w-3.5 h-3.5 text-[#A58A63]" />
-              <span>Chat on WhatsApp</span>
-            </a>
+              <a
+                href={COMPANY_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#171717]/80 hover:bg-[#171717] border border-[#F8F6F2]/25 text-[#F8F6F2] hover:text-[#A58A63] hover:border-[#A58A63] transition-all text-xs uppercase tracking-[0.18em] font-medium rounded-sm backdrop-blur-sm"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-[#A58A63]" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </motion.div>
 
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#F8F6F2]/30 text-[#F8F6F2] hover:bg-[#F8F6F2]/10 transition-colors text-xs uppercase tracking-[0.18em] font-medium rounded-sm"
+            <motion.div
+              initial={{ opacity: 0, x: -35 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.75 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <span>Explore Works</span>
-            </Link>
+              <Link
+                href="/#projects"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#F8F6F2]/30 text-[#F8F6F2] hover:bg-[#F8F6F2]/10 transition-colors text-xs uppercase tracking-[0.18em] font-medium rounded-sm"
+              >
+                <span>Explore Works</span>
+              </Link>
+            </motion.div>
           </div>
         </div>
 
         {/* Bottom Bar: Location & Scroll prompt */}
-        <div className="flex items-end justify-between border-t border-[#F8F6F2]/15 pt-5 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#C9C5BD] font-mono">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.88 }}
+          className="flex items-end justify-between border-t border-[#F8F6F2]/15 pt-5 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#C9C5BD] font-mono"
+        >
           <span>Bhopal, Madhya Pradesh</span>
           <div className="flex items-center gap-2 text-[#A58A63]">
             <span>SCROLL TO EXPLORE</span>
             <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

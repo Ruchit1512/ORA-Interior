@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 import { ABOUT_DATA, COMPANY_INFO } from "@/lib/data";
+import { motion } from "framer-motion";
+import { fadeLeft, fadeRight, zoomIn } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +16,6 @@ if (typeof window !== "undefined") {
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const imageRevealRef = useRef<HTMLDivElement>(null);
   const textParallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,25 +23,6 @@ export function AboutSection() {
     if (prefersReduced) return;
 
     const ctx = gsap.context(() => {
-      // Image reveal with clip-path
-      if (imageRevealRef.current) {
-        gsap.fromTo(
-          imageRevealRef.current,
-          { clipPath: "inset(20% 0% 20% 0%)", scale: 1.08 },
-          {
-            clipPath: "inset(0% 0% 0% 0%)",
-            scale: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 80%",
-              end: "center center",
-              scrub: 1,
-            },
-          }
-        );
-      }
-
       // Text parallax movement at different speed
       if (textParallaxRef.current) {
         gsap.to(textParallaxRef.current, {
@@ -67,64 +49,82 @@ export function AboutSection() {
     >
       <div className="container mx-auto">
         {/* Section Eyebrow */}
-        <div className="flex items-center justify-between border-b border-[#171717]/10 pb-4 mb-16 md:mb-24">
+        <motion.div
+          {...fadeLeft(0)}
+          className="flex items-center justify-between border-b border-[#171717]/10 pb-4 mb-16 md:mb-24"
+        >
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63]">
             About ORA
           </span>
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#68645D]">
             Complete Interior Work • Bhopal
           </span>
-        </div>
+        </motion.div>
 
         {/* Large Statement */}
         <div className="max-w-5xl mb-20 md:mb-32">
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-[#111111] leading-[1.12]">
+          <motion.h2
+            {...fadeLeft(0.08)}
+            className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-[#111111] leading-[1.12]"
+          >
             WE DON&apos;T JUST FILL A ROOM.
             <br />
             <span className="italic text-[#68645D]">WE SHAPE HOW IT FEELS.</span>
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Editorial Composition: Large Image with Overlapping Depth Content */}
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-          {/* Large Clip-Path Revealing Image */}
-          <div className="lg:col-span-8">
-            <div
-              ref={imageRevealRef}
-              className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#ECE8E1] will-change-transform border border-[#171717]/12 shadow-sm"
-            >
+          {/* Zoom In Revealing Image */}
+          <motion.div
+            {...zoomIn(0.08, 0.88)}
+            className="lg:col-span-8"
+          >
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#ECE8E1] border border-[#171717]/12 shadow-sm group">
               <Image
                 src="https://images.unsplash.com/photo-1758448755952-42b404bc6f39?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Architectural space styling Bhopal by ORA"
                 fill
                 sizes="(max-width: 1024px) 100vw, 70vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             </div>
-            <div className="pt-3 text-[10px] font-mono uppercase tracking-[0.2em] text-[#68645D]">
+            <motion.div
+              {...zoomIn(0.16, 0.94)}
+              className="pt-3 text-[10px] font-mono uppercase tracking-[0.2em] text-[#68645D]"
+            >
               Residential Architecture &amp; Execution • Bhopal, MP
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Parallax Narrative Text Column */}
+          {/* Parallax Narrative Text Column Entering from Right */}
           <div ref={textParallaxRef} className="lg:col-span-4 space-y-6 lg:pl-4">
-            <p className="font-serif text-xl sm:text-2xl text-[#111111] font-light leading-relaxed">
+            <motion.p
+              {...fadeRight(0.12)}
+              className="font-serif text-xl sm:text-2xl text-[#111111] font-light leading-relaxed"
+            >
               &ldquo;ORA Interior &amp; Construction Solutions provides complete interior and renovation solutions in Bhopal — from concept and 2D/3D design to materials and execution.&rdquo;
-            </p>
+            </motion.p>
 
-            <p className="text-sm md:text-base text-[#68645D] leading-relaxed font-sans font-light">
+            <motion.p
+              {...fadeRight(0.22)}
+              className="text-sm md:text-base text-[#68645D] leading-relaxed font-sans font-light"
+            >
               Instead of coordinating separate trades, homeowners in Bhopal work directly with our unified studio. One contract, verified craftsmen, premium certified materials, and dedicated on-site project oversight.
-            </p>
+            </motion.p>
 
-            <div className="pt-4 border-t border-[#171717]/10">
+            <motion.div
+              {...fadeRight(0.3)}
+              className="pt-4 border-t border-[#171717]/10"
+            >
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#111111] hover:text-[#A58A63] transition-colors border-b border-[#111111] pb-1"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#111111] hover:text-[#A58A63] transition-colors border-b border-[#111111] pb-1 group"
               >
                 <span>Schedule a Space Visit</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

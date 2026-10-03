@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MessageSquare, Phone, Mail } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
+import { motion } from "framer-motion";
+import { fadeLeft, buttonHover, fadeUp } from "@/lib/motion";
 
 export function CTASection() {
   return (
@@ -22,43 +24,65 @@ export function CTASection() {
       </div>
 
       <div className="container mx-auto relative z-10 text-center max-w-4xl">
-        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-[#A58A63] block mb-6">
+        <motion.span
+          {...fadeUp(0)}
+          className="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-[#A58A63] block mb-6"
+        >
           Next Step
-        </span>
+        </motion.span>
 
-        <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#F8F6F2] leading-[1.08] mb-6">
+        <motion.h2
+          {...fadeUp(0.08)}
+          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#F8F6F2] leading-[1.08] mb-6"
+        >
           LET&apos;S BUILD
           <br />
           <span className="italic text-[#C9C5BD]">YOUR SPACE.</span>
-        </h2>
+        </motion.h2>
 
-        <p className="text-base sm:text-lg md:text-xl text-[#C9C5BD] font-light max-w-xl mx-auto mb-12 leading-relaxed">
+        <motion.p
+          {...fadeUp(0.14)}
+          className="text-base sm:text-lg md:text-xl text-[#C9C5BD] font-light max-w-xl mx-auto mb-12 leading-relaxed"
+        >
           Tell us what you&apos;re imagining. We&apos;ll create the 2D layout, 3D visualization, and execute every detail with precision in Bhopal.
-        </p>
+        </motion.p>
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#A58A63] text-[#111111] hover:bg-[#b59a72] transition-all text-xs uppercase tracking-[0.2em] font-medium rounded-sm shadow-sm"
+          <motion.div
+            {...fadeUp(0.2)}
+            {...buttonHover}
           >
-            <span>Start Your Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#A58A63] text-[#111111] hover:bg-[#b59a72] transition-colors text-xs uppercase tracking-[0.2em] font-medium rounded-sm shadow-sm"
+            >
+              <span>Start Your Project</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </motion.div>
 
-          <a
-            href={COMPANY_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#171717] border border-[#F8F6F2]/30 text-[#F8F6F2] hover:bg-[#111111] hover:border-[#A58A63] hover:text-[#A58A63] transition-all text-xs uppercase tracking-[0.2em] font-medium rounded-sm"
+          <motion.div
+            {...fadeUp(0.26)}
+            {...buttonHover}
           >
-            <MessageSquare className="w-4 h-4 text-[#A58A63]" />
-            <span>Chat on WhatsApp</span>
-          </a>
+            <a
+              href={COMPANY_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#171717] border border-[#F8F6F2]/30 text-[#F8F6F2] hover:bg-[#111111] hover:border-[#A58A63] hover:text-[#A58A63] transition-colors text-xs uppercase tracking-[0.2em] font-medium rounded-sm"
+            >
+              <MessageSquare className="w-4 h-4 text-[#A58A63]" />
+              <span>Chat on WhatsApp</span>
+            </a>
+          </motion.div>
         </div>
 
         {/* Direct Contact Links */}
-        <div className="flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-[#C9C5BD] pt-8 border-t border-[#F8F6F2]/15">
+        <motion.div
+          {...fadeUp(0.32)}
+          className="flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-[#C9C5BD] pt-8 border-t border-[#F8F6F2]/15"
+        >
           <a
             href={`tel:${COMPANY_INFO.phone}`}
             className="hover:text-[#F8F6F2] transition-colors flex items-center gap-2"
@@ -76,7 +100,7 @@ export function CTASection() {
           <span className="text-[#C9C5BD]/60 hidden sm:inline-block">
             Bhopal, Madhya Pradesh
           </span>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

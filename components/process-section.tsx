@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROCESS_DATA } from "@/lib/data";
+import { motion } from "framer-motion";
+import { fadeLeft } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -57,20 +59,26 @@ export function ProcessSection() {
       <div className="container mx-auto h-full flex flex-col justify-between py-12 md:py-20">
         {/* Top Header */}
         <div>
-          <div className="flex items-center justify-between border-b border-[#171717]/15 pb-4 mb-6">
+          <motion.div
+            {...fadeLeft(0)}
+            className="flex items-center justify-between border-b border-[#171717]/15 pb-4 mb-6"
+          >
             <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63]">
               Roadmap
             </span>
             <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#68645D]">
               5 Sequential Phases
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#111111] leading-tight">
+          <motion.h2
+            {...fadeLeft(0.08)}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#111111] leading-tight"
+          >
             FROM IDEA
             <br />
             <span className="italic text-[#68645D]">TO HOME.</span>
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Central Architectural Timeline Stage */}

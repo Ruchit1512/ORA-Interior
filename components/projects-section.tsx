@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { PROJECTS_DATA } from "@/lib/data";
+import { motion } from "framer-motion";
+import { fadeLeft } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -101,17 +103,26 @@ export function ProjectsSection() {
         {/* Top Header */}
         <div className="container mx-auto flex items-center justify-between border-b border-[#FFFFFF]/15 pb-4">
           <div>
-            <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63] block">
+            <motion.span
+              {...fadeLeft(0)}
+              className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63] block"
+            >
               Portfolio
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#FFFFFF]">
+            </motion.span>
+            <motion.h2
+              {...fadeLeft(0.08)}
+              className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#FFFFFF]"
+            >
               SELECTED WORKS
-            </h2>
+            </motion.h2>
           </div>
           <div className="text-right">
-            <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C9C5BD]">
+            <motion.span
+              {...fadeLeft(0.12)}
+              className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C9C5BD]"
+            >
               Horizontal Gallery [01 — 05]
-            </span>
+            </motion.span>
           </div>
         </div>
 

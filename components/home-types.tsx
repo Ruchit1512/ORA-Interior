@@ -6,6 +6,8 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeLeft, buttonHover } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -94,14 +96,17 @@ export function HomeTypes() {
         ))}
 
         {/* Section Watermark Title in background */}
-        <div className="absolute top-10 left-6 md:left-16 z-10 flex items-center justify-between right-6 md:right-16 border-b border-[#F8F6F2]/15 pb-4">
+        <motion.div
+          {...fadeLeft(0)}
+          className="absolute top-10 left-6 md:left-16 z-10 flex items-center justify-between right-6 md:right-16 border-b border-[#F8F6F2]/15 pb-4"
+        >
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63] font-medium">
             Configurations
           </span>
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C9C5BD]">
             MADE FOR YOUR HOME
           </span>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scrolling Content Overlays (Relative, creates scroll distance) */}
@@ -112,33 +117,54 @@ export function HomeTypes() {
               key={ht.type}
               className="home-type-trigger max-w-2xl py-12 border-l-2 border-[#A58A63] pl-8 md:pl-12"
             >
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A58A63] font-medium">
-                0{idx + 1} • Property Type
-              </span>
-
-              <h3 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#F8F6F2] tracking-tight my-2">
-                {ht.type}
-              </h3>
-
-              <h4 className="font-serif text-xl sm:text-2xl text-[#F8F6F2] font-light mb-3">
-                {ht.title}
-              </h4>
-
-              <p className="text-base text-[#C9C5BD] font-light leading-relaxed mb-6">
-                {ht.description}
-              </p>
-
-              <div className="text-xs font-mono text-[#A58A63] tracking-wide mb-6">
-                {ht.features}
-              </div>
-
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#F8F6F2] hover:text-[#A58A63] transition-colors border-b border-[#F8F6F2]/30 pb-1"
+              <motion.span
+                {...fadeLeft(0)}
+                className="font-mono text-xs uppercase tracking-[0.25em] text-[#A58A63] font-medium block"
               >
-                <span>Request {ht.type} Layout Estimate</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+                0{idx + 1} • Property Type
+              </motion.span>
+
+              <motion.h3
+                {...fadeLeft(0.08)}
+                className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#F8F6F2] tracking-tight my-2"
+              >
+                {ht.type}
+              </motion.h3>
+
+              <motion.h4
+                {...fadeLeft(0.12)}
+                className="font-serif text-xl sm:text-2xl text-[#F8F6F2] font-light mb-3"
+              >
+                {ht.title}
+              </motion.h4>
+
+              <motion.p
+                {...fadeLeft(0.16)}
+                className="text-base text-[#C9C5BD] font-light leading-relaxed mb-6"
+              >
+                {ht.description}
+              </motion.p>
+
+              <motion.div
+                {...fadeLeft(0.2)}
+                className="text-xs font-mono text-[#A58A63] tracking-wide mb-6"
+              >
+                {ht.features}
+              </motion.div>
+
+              <motion.div
+                {...fadeLeft(0.24)}
+                {...buttonHover}
+                className="inline-block"
+              >
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-[#F8F6F2] hover:text-[#A58A63] transition-colors border-b border-[#F8F6F2]/30 pb-1"
+                >
+                  <span>Request {ht.type} Layout Estimate</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </motion.div>
             </div>
           ))}
         </div>

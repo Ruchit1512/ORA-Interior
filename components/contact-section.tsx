@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, MessageSquare } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
+import { motion } from "framer-motion";
+import { fadeLeft, buttonHover, fadeRight } from "@/lib/motion";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -21,21 +23,27 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 py-24 md:py-36 bg-[#F5F3EF] border-t border-[#171717]/10 relative">
+    <section id="contact" className="scroll-mt-24 py-24 md:py-36 bg-[#F5F3EF] border-t border-[#171717]/10 relative overflow-hidden">
       <div className="container mx-auto">
         {/* Section Header */}
-        <div className="flex items-center justify-between border-b border-[#171717]/10 pb-4 mb-16 md:mb-20">
+        <motion.div
+          {...fadeLeft(0)}
+          className="flex items-center justify-between border-b border-[#171717]/10 pb-4 mb-16 md:mb-20"
+        >
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63] font-medium">
             Direct Inquiry
           </span>
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#68645D]">
             Bhopal Studio
           </span>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           {/* Left Column: Studio Information */}
-          <div className="lg:col-span-5 space-y-10">
+          <motion.div
+            {...fadeLeft(0.1)}
+            className="lg:col-span-5 space-y-10"
+          >
             <div>
               <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#111111] leading-tight">
                 START YOUR
@@ -82,7 +90,8 @@ export function ContactSection() {
                 <span className="text-[#A58A63] uppercase tracking-[0.2em] font-semibold block">
                   Instant Channel
                 </span>
-                <a
+                <motion.a
+                  {...buttonHover}
                   href={COMPANY_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -91,13 +100,16 @@ export function ContactSection() {
                   <MessageSquare className="w-3.5 h-3.5 text-[#A58A63]" />
                   <span>Contact on WhatsApp</span>
                   <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
-                </a>
+                </motion.a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Architectural Form with clear readable inputs */}
-          <div className="lg:col-span-7 bg-[#ECE8E1] p-8 sm:p-12 border border-[#171717]/12 shadow-sm rounded-sm">
+          <motion.div
+            {...fadeRight(0.15)}
+            className="lg:col-span-7 bg-[#ECE8E1] p-8 sm:p-12 border border-[#171717]/12 shadow-sm rounded-sm"
+          >
             {submitted ? (
               <div className="py-12 space-y-4 text-center">
                 <div className="w-12 h-12 rounded-full border-2 border-[#111111] flex items-center justify-center mx-auto text-[#111111]">
@@ -212,16 +224,17 @@ export function ContactSection() {
                   />
                 </div>
 
-                <button
+                <motion.button
+                  {...buttonHover}
                   type="submit"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#111111] text-[#F8F6F2] hover:bg-[#A58A63] hover:text-[#111111] transition-all text-xs uppercase tracking-[0.2em] font-medium rounded-sm shadow-sm"
                 >
                   <span>Request Consultation</span>
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </motion.button>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

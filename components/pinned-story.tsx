@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
+import { fadeLeft } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -115,14 +117,17 @@ export function PinnedStory() {
     >
       <div className="container mx-auto h-full flex flex-col justify-between py-12 md:py-20">
         {/* Section Tagline */}
-        <div className="flex items-center justify-between border-b border-[#171717]/10 pb-4">
+        <motion.div
+          {...fadeLeft(0)}
+          className="flex items-center justify-between border-b border-[#171717]/10 pb-4"
+        >
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#A58A63]">
             The Design Philosophy
           </span>
           <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#68645D]">
             ORA Studio — Bhopal
           </span>
-        </div>
+        </motion.div>
 
         {/* Main Split Grid (Pinned stage) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center my-auto">
