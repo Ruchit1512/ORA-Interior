@@ -7,7 +7,6 @@ import { ProjectsSection } from "@/components/projects-section";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { ProcessSection } from "@/components/process-section";
 import { HomeTypes } from "@/components/home-types";
-import { MaterialsSection } from "@/components/materials-section";
 import { FAQSection } from "@/components/faq";
 import { CTASection } from "@/components/cta-section";
 import { ContactSection } from "@/components/contact-section";
@@ -23,7 +22,6 @@ export default function HomePage() {
       <WhyChooseUs />
       <ProcessSection />
       <HomeTypes />
-      <MaterialsSection />
       <FAQSection />
       <CTASection />
       <ContactSection />

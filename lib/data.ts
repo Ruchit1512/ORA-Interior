@@ -135,7 +135,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "MODULAR KITCHEN",
     tagline: "Ergonomic & Durable",
     description: "Custom modular kitchens designed for Indian cooking habits. High-moisture resistant carcasses, tandem drawers, soft-close hardware, acrylic & laminate finishes.",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1722605090433-41d1183a792d?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     features: ["BWP Marine Ply Carcasses", "Soft-Close German Fittings", "Pantry Units & Corner Carousels", "Granite & Quartz Countertops"],
   },
   {
@@ -144,7 +144,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "MODERN BEDROOM & WARDROBE",
     tagline: "Functional Sanctuary",
     description: "Floor-to-ceiling sliding & hinged wardrobes, ergonomic headboards, integrated bedside lighting, and organized internal drawer compartments.",
-    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1648634158203-199accfd7afc?q=80&w=1992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     features: ["Sliding & Openable Wardrobes", "Profile Glass & Fluted Panels", "Concealed Warm Lighting", "Custom Bed Bases & Dressers"],
   },
   {
@@ -153,7 +153,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "TV UNIT & TEMPLE",
     tagline: "Aesthetic Centerpieces",
     description: "Modern floating entertainment consoles with acoustic fluted panelling, paired with sacred, Vastu-compliant Mandir designs with intricate CNC jali work.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1745429523637-60f5986cc1db?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     features: ["Floating TV Consoles", "Acoustic Fluted Wall Panels", "CNC Cut Jali Mandir Panels", "Concealed Cable Routing"],
   },
   {
@@ -162,7 +162,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "SOFA CUM BED & SOFA",
     tagline: "Space-Saving Comfort",
     description: "Custom-built modular sofas, L-shaped sectionals, and high-density foam sofa-cum-beds tailored to your exact living room dimensions and fabric preferences.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1759722665629-29df6ee4f9a5?q=80&w=2018&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     features: ["Heavy-Duty Mechanism", "Premium Stain-Resistant Fabrics", "High-Resilience Foam Cushions", "Made to Room Measurement"],
   },
   {
@@ -207,7 +207,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "LABOUR + MATERIALS",
     tagline: "Zero Coordination Hassle",
     description: "Transparent combined contracts covering verified skilled carpenters, painters, plumbers, alongside brand-verified ply, hardware, and finishes.",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/labour.png",
     features: ["Unified Single Contract", "Direct Material Sourcing", "Strict Quality Supervision", "No Surprise Hidden Costs"],
   },
 ];

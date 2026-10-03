@@ -94,7 +94,7 @@ export function AboutSection() {
               className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#ECE8E1] will-change-transform border border-[#171717]/12 shadow-sm"
             >
               <Image
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85"
+                src="https://images.unsplash.com/photo-1758448755952-42b404bc6f39?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Architectural space styling Bhopal by ORA"
                 fill
                 sizes="(max-width: 1024px) 100vw, 70vw"
