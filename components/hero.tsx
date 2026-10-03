@@ -199,23 +199,7 @@ export function Hero() {
               </Link>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -35 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.65 }}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#171717]/80 hover:bg-[#171717] border border-[#F8F6F2]/25 text-[#F8F6F2] hover:text-[#A58A63] hover:border-[#A58A63] transition-all text-xs uppercase tracking-[0.18em] font-medium rounded-sm backdrop-blur-sm"
-              >
-                <MessageSquare className="w-3.5 h-3.5 text-[#A58A63]" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </motion.div>
+      
 
             <motion.div
               initial={{ opacity: 0, x: -35 }}

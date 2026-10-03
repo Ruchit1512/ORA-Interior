@@ -21,7 +21,7 @@ export default function HomePage() {
       <ProjectsSection />
       <WhyChooseUs />
       <ProcessSection />
-      <HomeTypes />
+      {/* <HomeTypes /> */}
       <FAQSection />
       <CTASection />
       <ContactSection />
